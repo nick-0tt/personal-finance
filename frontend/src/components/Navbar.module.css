@@ -1,0 +1,31 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 100px;
+    background-color: black;
+}
+
+.image {
+    width: 100px;
+    height: 100px;
+}
+
+.navlinks {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    li {
+        display: inline-block;
+        margin: 0 20px;
+        font-size: 1.5rem;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        a {
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+            &:hover {
+                color: rgba(255, 255, 255, 0.7);
+            }
+        }
+    }
+}

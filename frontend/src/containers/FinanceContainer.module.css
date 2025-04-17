@@ -1,0 +1,175 @@
+.FinanceContainer {
+    position: relative;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    background-color: rgb(46, 46, 46);
+    border-radius: 15px;
+    margin: 50px;
+    min-height: fit-content;
+    color: rgb(255, 255, 255);
+    &::after, &::before {
+        content: '';
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 50%;
+        left: 50%;
+        background: red;
+        z-index: -1;
+        translate: -50% -50%;
+        padding: 10px;
+        border-radius: 15px;
+        background-image: conic-gradient(rgb(255, 97, 97), lime, rgb(55, 228, 255), rgb(107, 107, 255), rgb(255, 97, 97));
+    }
+    &::before {
+        filter: blur(1.5rem);
+    }
+}
+
+.TextContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 20px 5%;
+    flex-wrap: wrap;
+    gap: 10%;
+}
+
+.Header2 {
+    font-size: 3rem;
+    width: 90%;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin: 40px 5%;
+}
+
+.FinanceTableContainer {
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: auto;
+    padding: 10px;
+    flex: 1 0 70%;
+}
+
+.FinanceTable {
+    width: 100%;
+    border: 1px solid white;
+    border-spacing: 0px;
+    table-layout: fixed;
+    background-color: rgb(0, 0, 0);
+    font-size: 2rem;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px gray;
+    th, td {
+        word-wrap: break-word;
+        padding: 10px;
+        text-align: left;
+        border: none;
+        &:nth-child(1) {
+            width: 35%;
+        }
+        &:nth-child(2) {
+            width: 25%;
+        }
+        &:nth-child(3) {
+            width: 20%;
+        }
+        &:nth-child(4) {
+            width: 20%;
+        }
+    }
+    tbody tr:hover {
+        background-color: rgba(255, 255, 255, 0.3);
+    }
+    thead {
+        th {
+            border-bottom: 1px solid white;
+        }
+    }
+    tfoot {
+        td {
+            border-top: 1px solid white;
+        }
+    }
+}
+
+.AddButton {
+    background-color: rgb(0, 0, 0);
+    color: white;
+    font-size: 1.5rem;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 20px 0;
+    cursor: pointer;
+    border: 1px solid white;
+    box-shadow: 0 0 10px gray;
+}
+.AddButton:hover {
+    background-color: rgb(0, 0, 0, 0.5);
+}
+
+.LineSpan {
+    display: block;
+    margin: auto;
+    width: 95%;
+    border-radius: 5px;
+    height: 4px;
+    background-color: white;
+}
+
+.OneTimeContainer {
+    background-color: rgb(0, 0, 0);
+    width: 90%;
+    margin: 50px auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px gray;
+    border: 1px solid white;
+}
+
+.GridContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 0.25fr));
+}
+
+@media only screen and (max-width: 1450px) {
+    .GridContainer {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 0.333333fr));
+    }
+}
+@media only screen and (max-width: 1118px) {
+    .GridContainer {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 0.5fr));
+    }
+}
+@media only screen and (max-width: 784px) {
+    .GridContainer {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+}
+
+.GridAdd {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-color: rgb(46, 46, 46);
+    padding: 20px;
+    margin: 20px;
+    height: 270px;
+    min-height: fit-content;
+    border-radius: 10px;
+    div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 2px inset rgb(0, 0, 0);
+        width: 100%;
+        height: 100%;
+        font-size: 80px;
+        cursor: pointer;
+    }
+}
