@@ -35,8 +35,8 @@ function RegisterContainer({authenticated, setAuthenticated}) {
             <div className={styles.registerForm}>
                 <h1>Register</h1>
                 <form onSubmit={handleRegister}>
-                    <input type="text" name="username" placeholder="Username" required />
-                    <input type="password" name="password" placeholder="Password" required />
+                    <input type="text" name="username" placeholder="Username" required autocomplete="off"/>
+                    <input type="password" name="password" placeholder="Password" required autocomplete="off"/>
                     <button type="submit">Register</button>
                 </form>
                 <Link to="/login" className={styles.registerLink}>

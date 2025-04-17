@@ -36,8 +36,8 @@ function LoginContainer({isAuthenticated, setIsAuthenticated, setUser}) {
             <div className={styles.loginForm}>
                 <h1>Login</h1>
                 <form onSubmit={handleLogin}>
-                    <input type="text" name="username" placeholder="Username" required />
-                    <input type="password" name="password" placeholder="Password" required />
+                    <input type="text" name="username" placeholder="Username" required autocomplete="off"/>
+                    <input type="password" name="password" placeholder="Password" required autocomplete="off"/>
                     <button type="submit">Login</button>
                 </form>
                 <Link to="/register" className={styles.loginLink}>

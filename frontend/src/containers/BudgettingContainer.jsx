@@ -111,19 +111,19 @@ function BudgettingContainer({data}) {
             <div className={styles.InputContainer}>
                 <div>
                     <label htmlFor="checkingAmount">Checking Amount:</label>
-                    <input type="number" id="checkingAmount" name="checkingAmount" value={checkingAmount} onChange={handleChange}/>
+                    <input type="number" id="checkingAmount" name="checkingAmount" value={checkingAmount} onChange={handleChange} autocomplete="off"/>
                 </div>
                 <div>
                     <label htmlFor="savingsAmount">Savings Amount:</label>
-                    <input type="number" id="savingsAmount" name="savingsAmount" value={savingsAmount} onChange={handleChange}/>
+                    <input type="number" id="savingsAmount" name="savingsAmount" value={savingsAmount} onChange={handleChange} autocomplete="off"/>
                 </div>
                 <div>
                     <label htmlFor="timeSpan">Time Span (months):</label>
-                    <input type="number" id="timeSpan" name="timeSpan" value={timeSpan} onChange={handleChange}/>
+                    <input type="number" id="timeSpan" name="timeSpan" value={timeSpan} onChange={handleChange} autocomplete="off"/>
                 </div>
                 <div>
                     <label htmlFor="percentToSavings">Percent to Savings:</label>
-                    <input type="number" id="percentToSavings" name="percentToSavings" value={percentToSavings} onChange={handleChange}/>
+                    <input type="number" id="percentToSavings" name="percentToSavings" value={percentToSavings} onChange={handleChange} autocomplete="off"/>
                 </div>
             </div>
             <div className={styles.GraphContainer}>

@@ -4,12 +4,6 @@ import styles from "../App.module.css";
 import LoginContainer from "../containers/LoginContainer";
 
 function Login({authenticated, setUser, setAuthenticated}) {
-    const navigate = useNavigate();
-    useEffect(() => {
-        if (authenticated) {
-            navigate("/dashboard");
-        }
-    }, [authenticated, navigate]);
 
     return (<>
         <div className={styles.App}>
