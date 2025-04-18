@@ -19,7 +19,7 @@ function Interface({submitHandler, onCloseClick, categories, defaultValue}) {
             <div id="interface" className={styles.interface}>
                 <form onSubmit={submitHandler} autoComplete="off">
                     <label htmlFor="source">Source</label>
-                    <input required onChange={handleChange} value={formState.source} type="text" id="source" name="source" autocomplete="off"></input>
+                    <input required onChange={handleChange} value={formState.source} type="text" id="source" name="source" autoComplete="off"></input>
 
                     <label htmlFor="category">Category</label>
                     <select onChange={handleChange} value={formState.category} required id="category" name="category">
@@ -29,7 +29,7 @@ function Interface({submitHandler, onCloseClick, categories, defaultValue}) {
                     </select>
 
                     <label htmlFor="amount">Amount</label>
-                    <input onChange={handleChange} value={formState.amount} required type="number" id="amount" name="amount" autocomplete="off"></input>
+                    <input min="1" onChange={handleChange} value={formState.amount} required type="number" id="amount" name="amount" autoComplete="off"></input>
 
                     <button type="submit">Submit</button>
                 </form>

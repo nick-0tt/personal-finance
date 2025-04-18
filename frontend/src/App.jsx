@@ -23,7 +23,7 @@ function App() {
   const [oneTimeIncomeData, setOneTimeIncomeData] = useState([]);
   const [oneTimeExpensesData, setOneTimeExpensesData] = useState([]);
 
-  const [isAuthenticated, setIsAuthenticated] = useState();
+  const [isAuthenticated, setIsAuthenticated] = useState(true);
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -31,10 +31,9 @@ function App() {
 
   const fetchAPI = async () => {
     try {
-      const incomeResponse = await axios.get("http://localhost:5000/api/income");
-      const expensesResponse = await axios.get("http://localhost:5000/api/expenses");
-      setIncomeData(incomeResponse.data);
-      setExpensesData(expensesResponse.data);
+      const financialDataResponse = await axios.get("http://localhost:5000/api/financial-data");
+      setIncomeData(financialDataResponse.data.filter(item => item.type === "Income"));
+      setExpensesData(financialDataResponse.data.filter(item => item.type === "Expenses"));
     } catch(error) {
       console.error("Error fetching data from API", error);
     } 
@@ -51,25 +50,30 @@ function App() {
       setUser(response.data.user);
       setIsAuthenticated(response.data.isAuthenticated);
       console.log("User authenticated:", response.data.isAuthenticated);
+      if (response.data.isAuthenticated && window.location.pathname === "/login" || window.location.pathname === "/register") {
+        navigate("/dashboard");
+      }
     } catch (error) {
       console.error("Error checking authentication status", error);
     } finally {
+      console.log("Authentication check complete");
       setIsLoading(false);
     }
   }
 
   useEffect(() => {
-    if (!isAuthenticated) {
-      if (window.location.pathname !== "/login" && window.location.pathname !== "/register") {
-        console.log("User is not authenticated, redirecting to login...");
-        navigate("/login");
+    if (!isLoading) {
+      if (!isAuthenticated) {
+        if (window.location.pathname !== "/login" && window.location.pathname !== "/register") {
+          console.log("User is not authenticated, redirecting to login...");
+          navigate("/login");
+        }
+      } else {
+        console.log("User is authenticated, fetching data...");
+        fetchAPI();
       }
-    } else {
-      console.log("User is authenticated");
-      console.log("Fetching data from API...");
-      fetchAPI();
     }
-  }, [isAuthenticated]);
+  }, [isLoading]);
 
   if (isLoading) {
     return <div className={styles.App}>Loading...</div>
@@ -80,7 +84,7 @@ function App() {
       <Routes>
         <Route
           path="/login"
-          element={<Login authenticated={isAuthenticated} setUser={setUser} setAuthenticated={setIsAuthenticated} />}
+          element={<Login fetch={fetchAPI} setUser={setUser} setAuthenticated={setIsAuthenticated} />}
         />
         <Route
           path="/register"

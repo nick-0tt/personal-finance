@@ -3,11 +3,11 @@ import {useNavigate} from "react-router";
 import styles from "../App.module.css";
 import LoginContainer from "../containers/LoginContainer";
 
-function Login({authenticated, setUser, setAuthenticated}) {
+function Login({fetch, setUser, setAuthenticated}) {
 
     return (<>
-        <div className={styles.App}>
-            <LoginContainer isAuthenticated={authenticated} setUser={setUser} setIsAuthenticated={setAuthenticated}/>
+        <div>
+            <LoginContainer fetch={fetch} setUser={setUser} setIsAuthenticated={setAuthenticated}/>
         </div>
     </>);
 }

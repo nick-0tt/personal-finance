@@ -3,7 +3,7 @@ import {Link, useNavigate} from "react-router";
 import axios from "axios";
 import styles from "./LoginContainer.module.css";
 
-function LoginContainer({isAuthenticated, setIsAuthenticated, setUser}) {
+function LoginContainer({fetch, setIsAuthenticated, setUser}) {
     const navigate = useNavigate();
 
     const handleLogin = async (e) => {
@@ -21,6 +21,7 @@ function LoginContainer({isAuthenticated, setIsAuthenticated, setUser}) {
             if (response.data) {
                 setIsAuthenticated(true);
                 setUser(response.data.user);
+                fetch();
                 navigate("/dashboard");
             } else {
                 alert("Invalid credentials");
@@ -32,12 +33,12 @@ function LoginContainer({isAuthenticated, setIsAuthenticated, setUser}) {
     };
 
     return (
-        <div className={styles.loginContainer}>
+        <div className={styles.loginPage}>
             <div className={styles.loginForm}>
                 <h1>Login</h1>
                 <form onSubmit={handleLogin}>
-                    <input type="text" name="username" placeholder="Username" required autocomplete="off"/>
-                    <input type="password" name="password" placeholder="Password" required autocomplete="off"/>
+                    <input type="text" name="username" placeholder="Username" required autoComplete="off"/>
+                    <input type="password" name="password" placeholder="Password" required autoComplete="off"/>
                     <button type="submit">Login</button>
                 </form>
                 <Link to="/register" className={styles.loginLink}>

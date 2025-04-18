@@ -12,6 +12,8 @@ function Navbar() {
             await axios.post("http://localhost:5000/api/logout");
             console.log("Logged out successfully");
             navigate("/login", {replace: true});
+            window.history.pushState(null, null, "/login");
+            window.history.go(0);
         } catch (error) {
             console.error("Error logging out", error);
         }
@@ -27,11 +29,10 @@ function Navbar() {
                     <li><Link to="/income">Income</Link></li>
                     <li><Link to="/expenses">Expenses</Link></li>
                     <li><Link to="/budgetting">Budgetting</Link></li>
-                    <li>
-                        <button onClick={handleLogout}>Logout</button>
-                    </li>
-                    
                 </ul>
+            </div>
+            <div className={styles.logout}>
+                <button onClick={handleLogout}>Logout</button>
             </div>
         </nav>
     )

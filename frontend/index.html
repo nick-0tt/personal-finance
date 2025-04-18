@@ -3,8 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="stylesheet" href="./index.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite + React</title>
+    <script>
+
+      const backgroundOptions = [
+        "./src/assets/images/low-poly-grid-haikei.svg", 
+        "./src/assets/images/low-poly-grid-haikei (1).svg", 
+        "./src/assets/images/low-poly-grid-haikei (2).svg", 
+        "./src/assets/images/low-poly-grid-haikei (3).svg"];
+      const randomIndex = Math.floor(Math.random() * backgroundOptions.length);
+      document.addEventListener("DOMContentLoaded", () => {
+        document.body.style.backgroundImage = `url('${backgroundOptions[randomIndex]}')`;
+      });
+
+    </script>
   </head>
   <body>
     <div id="root"></div>

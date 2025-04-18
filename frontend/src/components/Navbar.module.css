@@ -1,9 +1,11 @@
-.navbar {
+.navbar { 
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0px 100px;
-    background-color: black;
+    background: transparent;
+    width: 100%;
+    font-weight: bold;
 }
 
 .image {
@@ -26,6 +28,22 @@
             &:hover {
                 color: rgba(255, 255, 255, 0.7);
             }
+        }
+    }
+}
+
+.logout {
+    button {
+        padding: 10px 20px;
+        border-radius: 5px;
+        border: 1px solid rgba(255, 255, 255, 0.7);
+        background: transparent;
+        color: white;
+        font-size: 1.2rem;
+        cursor: pointer;
+        font-weight: bold;
+        &:hover {
+            color: rgba(255, 255, 255, 0.7);
         }
     }
 }

@@ -3,28 +3,13 @@
     justify-content: space-around;
     align-items: center;
     width: 100%;
-    background-color: rgb(46, 46, 46);
+    background: transparent;
+    backdrop-filter: blur(10px);
     border-radius: 15px;
+    border: 2px solid rgba(255, 255, 255, 0.7);
     margin: 50px;
     min-height: fit-content;
     color: rgb(255, 255, 255);
-    &::after, &::before {
-        content: '';
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        top: 50%;
-        left: 50%;
-        background: red;
-        z-index: -1;
-        translate: -50% -50%;
-        padding: 10px;
-        border-radius: 15px;
-        background-image: conic-gradient(rgb(255, 97, 97), lime, rgb(55, 228, 255), rgb(107, 107, 255), rgb(255, 97, 97));
-    }
-    &::before {
-        filter: blur(1.5rem);
-    }
 }
 
 .TextContainer {
@@ -57,13 +42,14 @@
     border: 1px solid white;
     border-spacing: 0px;
     table-layout: fixed;
-    background-color: rgb(0, 0, 0);
+    background: transparent;
     font-size: 2rem;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     padding: 10px;
     border-radius: 10px;
     box-shadow: 0 0 10px gray;
     th, td {
+        color: #ffffff;
         word-wrap: break-word;
         padding: 10px;
         text-align: left;
@@ -97,7 +83,7 @@
 }
 
 .AddButton {
-    background-color: rgb(0, 0, 0);
+    background: transparent;
     color: white;
     font-size: 1.5rem;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -122,7 +108,7 @@
 }
 
 .OneTimeContainer {
-    background-color: rgb(0, 0, 0);
+    background: transparent;
     width: 90%;
     margin: 50px auto;
     border-radius: 10px;
@@ -156,12 +142,18 @@
     justify-content: center;
     align-items: center;
     position: relative;
-    background-color: rgb(46, 46, 46);
+    background-color: rgb(255, 255, 255, 0.1);
     padding: 20px;
     margin: 20px;
     height: 270px;
     min-height: fit-content;
     border-radius: 10px;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.2); 
+        transform: scale(1.05); 
+        border-color: rgba(255, 255, 255, 0.8); 
+    }
     div {
         display: flex;
         justify-content: center;
@@ -171,5 +163,6 @@
         height: 100%;
         font-size: 80px;
         cursor: pointer;
+        color: rgb(255, 255, 255, 0.7);
     }
 }

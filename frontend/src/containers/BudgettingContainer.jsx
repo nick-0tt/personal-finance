@@ -111,19 +111,19 @@ function BudgettingContainer({data}) {
             <div className={styles.InputContainer}>
                 <div>
                     <label htmlFor="checkingAmount">Checking Amount:</label>
-                    <input type="number" id="checkingAmount" name="checkingAmount" value={checkingAmount} onChange={handleChange} autocomplete="off"/>
+                    <input min="0" type="number" id="checkingAmount" name="checkingAmount" value={checkingAmount} onChange={handleChange} autoComplete="off"/>
                 </div>
                 <div>
                     <label htmlFor="savingsAmount">Savings Amount:</label>
-                    <input type="number" id="savingsAmount" name="savingsAmount" value={savingsAmount} onChange={handleChange} autocomplete="off"/>
+                    <input min="0" type="number" id="savingsAmount" name="savingsAmount" value={savingsAmount} onChange={handleChange} autoComplete="off"/>
                 </div>
                 <div>
                     <label htmlFor="timeSpan">Time Span (months):</label>
-                    <input type="number" id="timeSpan" name="timeSpan" value={timeSpan} onChange={handleChange} autocomplete="off"/>
+                    <input min="1" max="12" type="number" id="timeSpan" name="timeSpan" value={timeSpan} onChange={handleChange} autoComplete="off"/>
                 </div>
                 <div>
                     <label htmlFor="percentToSavings">Percent to Savings:</label>
-                    <input type="number" id="percentToSavings" name="percentToSavings" value={percentToSavings} onChange={handleChange} autocomplete="off"/>
+                    <input min="0" max="100" type="number" id="percentToSavings" name="percentToSavings" value={percentToSavings} onChange={handleChange} autoComplete="off"/>
                 </div>
             </div>
             <div className={styles.GraphContainer}>

@@ -34,6 +34,7 @@
         margin: 10px 0;
         padding: 0 10px;
         font-size: 1.5rem;
+        outline: none;
     }
     button {
         font-size: 1.5rem;

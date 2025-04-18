@@ -1,17 +1,19 @@
 .GridPiece {
     position: relative;
-    background-color: rgb(46, 46, 46);
+    background-color: rgb(255, 255, 255, 0.1);
     padding: 20px;
     margin: 20px;
     height: 270px;
     min-height: fit-content;
     border-radius: 10px;
+    
     .GridTextContainer {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         height: 100%;
         width: 100%;
+
         .GridInset {
             display: flex;
             flex-direction: column;
@@ -48,6 +50,7 @@
         width: 100%;
         position: relative;
         font-size: 1.5rem;
+        
         input {
             border-radius: 5px;
             height: 40px;
@@ -61,9 +64,11 @@
             font-size: 1.5rem;
             border-radius: 5px;
             padding: 10px 20px;
+            background: transparent;
+            color: white;
             &:hover {
                 cursor: pointer;
-                background-color: rgba(255, 255, 255, 0.7);
+                background-color: rgb(0, 0, 0, 0.5);
             }
         }
         .GridPieceFormControls {

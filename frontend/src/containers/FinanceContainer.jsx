@@ -20,8 +20,7 @@ function FinanceContainer({monthlyData, oneTimeData, setMonthlyData, setOneTimeD
             return ["Salary", "Investment", "Other"];
         } else if (type === "Expenses") {
             return ["Housing", "Food", "Transportation", "Entertainment", "Shopping", "Personal Care", "Pets", "Childcare", "Other"];
-        }
-        return ["dog"];
+        };
     }
 
     const addHandler = () => {
@@ -42,20 +41,22 @@ function FinanceContainer({monthlyData, oneTimeData, setMonthlyData, setOneTimeD
         const amount = parseInt(e.target.amount.value);
 
         if (rowToEdit === null) {
-            await axios.post(url, {source, category, amount});
-            setMonthlyData((prev) => [...prev, {source, category, amount}]);
+            await axios.post(url, {source, type, category, amount});
+            setMonthlyData((prev) => [...prev, {source, type, category, amount}]);
             setInterfaceOpen(false);
         } else {
-            console.log("PUT request sent");
-            console.log({index: rowToEdit, newData: {source, category, amount}})
-            await axios.put(url, {id: monthlyData[rowToEdit]._id, newData: {source, category, amount}});
-            console.log("PUT request sent");
+            const existingItem = monthlyData[rowToEdit];
+            const updatedItem = {...existingItem, source, type, category, amount};
+            
+            await axios.put(url, {id: monthlyData[rowToEdit]._id, newData: updatedItem});
+            
             const updatedData = monthlyData.map((item, index) => {
                 if (index === rowToEdit) {
-                    return {source, category, amount};
+                    return updatedItem;
                 }
                 return item;
             });
+            
             setMonthlyData(updatedData);
             setRowToEdit(null);
             setInterfaceOpen(false);

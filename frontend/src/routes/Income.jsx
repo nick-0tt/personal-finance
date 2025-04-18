@@ -7,10 +7,11 @@ function Income({data, setData}) {
     const {incomeData, oneTimeIncomeData} = data;
     const {setIncomeData, setOneTimeIncomeData} = setData;
     
+    console.log("Income data: ", incomeData);
     return (<>
             <Navbar/>
             <div className={styles.App}>
-                <FinanceContainer monthlyData={incomeData} setMonthlyData={setIncomeData} oneTimeData={oneTimeIncomeData} setOneTimeData={setOneTimeIncomeData} url="http://localhost:5000/api/income" type={"Income"}/>
+                <FinanceContainer monthlyData={incomeData} setMonthlyData={setIncomeData} oneTimeData={oneTimeIncomeData} setOneTimeData={setOneTimeIncomeData} url="http://localhost:5000/api/financial-data" type={"Income"}/>
             </div>
         </>
     )

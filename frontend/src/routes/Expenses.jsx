@@ -10,7 +10,7 @@ function Expenses({data, setData}) {
     return (<>
             <Navbar/>
             <div className={styles.App}>
-                <FinanceContainer monthlyData={expensesData} setMonthlyData={setExpensesData} oneTimeData={oneTimeExpensesData} setOneTimeData={setOneTimeExpensesData} url={"http://localhost:5000/api/expenses"} type={"Expenses"}/>
+                <FinanceContainer monthlyData={expensesData} setMonthlyData={setExpensesData} oneTimeData={oneTimeExpensesData} setOneTimeData={setOneTimeExpensesData} url={"http://localhost:5000/api/financial-data"} type={"Expenses"}/>
             </div>
         </>
     )
