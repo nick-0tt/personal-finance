@@ -9,7 +9,8 @@
     height: 100vh;
     width: 100%;
     z-index: 10;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
 }
 
 .interface {
@@ -19,31 +20,55 @@
     align-items: center;
     width: 40%;
     height: fit-content;
-    background-color: rgb(74, 74, 74);
+    background: #297EA6;
+    border: 2px solid rgba(255, 255, 255, 0.9);
     border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    min-width: 400px;
     form {
         padding: 40px 50px;
         height: 100%;
         min-height: fit-content;
         font-size: 1.7rem;
+        gap: 10px;
+    }
+    label {
+        margin-top: 10px;
     }
     input, select {
         border-radius: 5px;
         width: 100%;
         height: 50px;
         margin: 10px 0;
-        padding: 0 10px;
+        padding: 0 15px;
         font-size: 1.5rem;
         outline: none;
+        color: white;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        &:focus {
+            border-color: rgba(255, 255, 255, 0.9);
+            background-color: rgba(255, 255, 255, 0.2); 
+        }
+    }
+    select option {
+        color: black;
     }
     button {
         font-size: 1.5rem;
         border-radius: 5px;
         padding: 10px 20px;
         margin: 10px 0;
+        color: white;
+        background: rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.5); /* Subtle border */
+        transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;    
         &:hover {
             cursor: pointer;
             background-color: rgba(255, 255, 255, 0.7);
+            color: black; /* Change text color for contrast */
+            border-color: rgba(255, 255, 255, 0.9); /* Highlight border on hover */
+        
         }
     }
 }

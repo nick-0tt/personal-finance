@@ -99,6 +99,16 @@ function FinanceContainer({monthlyData, oneTimeData, setMonthlyData, setOneTimeD
         ]
     }
 
+    const pieOptions = {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+                display: false,
+            }
+        }
+    }
+
     const [editing, setEditing] = useState(false);
     const [editingIndex, setEditingIndex] = useState(null);
 
@@ -147,7 +157,7 @@ function FinanceContainer({monthlyData, oneTimeData, setMonthlyData, setOneTimeD
         <>
         <div className={styles.FinanceContainer}>
             <h2 className={styles.Header2}>{`Monthly ${type}`}</h2>
-            <div className={styles.TextContainer}>
+            <span className={styles.LineSpan}></span>
                 <div className={styles.FinanceTableContainer}>
                     <table className={styles.FinanceTable}> 
                         <thead>
@@ -174,14 +184,15 @@ function FinanceContainer({monthlyData, oneTimeData, setMonthlyData, setOneTimeD
                     </table>
                     <button className={styles.AddButton} onClick={addHandler}>Add</button>
                 </div>
-                <div>
-                    <Pie data={pieData}/>
+                <div className={styles.PieContainer}>
+                    <Pie data={pieData} options={pieOptions}/>
                 </div>
-            </div>
+            
             
             <span className={styles.LineSpan}></span>
 
             <h2 className={styles.Header2}>{`One Time ${type}`}</h2>
+            
             <div className={styles.OneTimeContainer}>
                 <div className={styles.GridContainer}>
                     {oneTimeData.map(({source, amount}, index) => {
@@ -192,10 +203,11 @@ function FinanceContainer({monthlyData, oneTimeData, setMonthlyData, setOneTimeD
                     </div>
                 </div>
             </div>
+
             
-            {interfaceOpen && <Interface defaultValue={rowToEdit !== null && monthlyData[rowToEdit]} onCloseClick={closeHandler} submitHandler={submitHandler} type={type} categories={categories}/>}
+            
         </div>
-        
+        {interfaceOpen && <Interface defaultValue={rowToEdit !== null && monthlyData[rowToEdit]} onCloseClick={closeHandler} submitHandler={submitHandler} type={type} categories={categories}/>}
         
         </>
     )

@@ -10,8 +10,8 @@ function ListedAmount({source, category, amount, onEditHandler, onDeleteHandler}
             <td>${amount}</td>
             <td>
                 <div style={{display: "flex", justifyContent: "space-evenly", width: "100%"}}>
-                    <EditPencil height="100%" width="20%" onClickHandler={onEditHandler}/>
-                    <TrashCan height="100%" width="20%" onClickHandler={onDeleteHandler}/>
+                    <EditPencil height="100%" width="15%" onClickHandler={onEditHandler}/>
+                    <TrashCan height="100%" width="15%" onClickHandler={onDeleteHandler}/>
                 </div>
             </td>
         </tr>

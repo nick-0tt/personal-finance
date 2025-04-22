@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
-import {Chart as ChartJS, LineController, LineElement, PointElement, CategoryScale, LinearScale} from "chart.js";
+import {Chart as ChartJS, LineController, LineElement, PointElement, CategoryScale, LinearScale, Legend} from "chart.js";
 import {Line} from "react-chartjs-2";
-ChartJS.register(LineController, LineElement, PointElement, CategoryScale, LinearScale);
+ChartJS.register(LineController, LineElement, PointElement, CategoryScale, LinearScale, Legend);
 import styles from "./BudgettingContainer.module.css";
 
 function BudgettingContainer({data}) {
@@ -63,14 +63,20 @@ function BudgettingContainer({data}) {
             data: checkingGraphData,
             borderColor: "#40e0d0",
             borderWidth: 5,
-            pointRadius: 3,
+            pointBorderWidth: 0,
+            pointRadius: 5,
+            pointHoverRadius: 5,
+            pointBackgroundColor: "white",
         },
         {
             label: 'Savings',
             data: savingsGraphData,
             borderColor: "#FF7F50",
             borderWidth: 5,
-            pointRadius: 3,
+            pointBorderWidth: 0,
+            pointRadius: 5,
+            pointHoverRadius: 5,
+            pointBackgroundColor: "white",
         }]
     }
 
@@ -80,15 +86,29 @@ function BudgettingContainer({data}) {
         plugins: {
             legend: {
                 display: true,
+                position: "bottom",
                 labels: {
-                    color: "white" // Legend text color
+                    color: "white", // Legend text color
+                    boxWidth: 20,
+                    boxHeight: 10,
+                    padding: 20,
+                    font: {
+                        size: 24,
+                        weight: "bold",
+                        family: "Arial",
+                    },
                 }
             }
         },
         scales: {
             x: {
                 ticks: {
-                    color: "white" // X-axis label color
+                    color: "white", // X-axis label color
+                    font: {
+                        size: 16,
+                        weight: "bold",
+                        family: "Arial",
+                    }
                 },
                 grid: {
                     color: "rgba(255, 255, 255, 0.2)" // X-axis grid line color
@@ -96,7 +116,12 @@ function BudgettingContainer({data}) {
             },
             y: {
                 ticks: {
-                    color: "white" // Y-axis label color
+                    color: "white",
+                    font: {
+                        size: 16,
+                        weight: "bold",
+                        family: "Arial",
+                    } // Y-axis label color
                 },
                 grid: {
                     color: "rgba(255, 255, 255, 0.2)" // Y-axis grid line color

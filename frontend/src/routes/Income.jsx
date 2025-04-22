@@ -7,7 +7,6 @@ function Income({data, setData}) {
     const {incomeData, oneTimeIncomeData} = data;
     const {setIncomeData, setOneTimeIncomeData} = setData;
     
-    console.log("Income data: ", incomeData);
     return (<>
             <Navbar/>
             <div className={styles.App}>
